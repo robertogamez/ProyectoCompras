@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using Pedidos.WebApp.App_Start;
+using System;
 using System.Web;
-using System.Web.Mvc;
-using System.Web.Routing;
-using System.Web.Security;
-using System.Web.SessionState;
 using System.Web.Http;
+using System.Web.Mvc;
+using System.Web.Optimization;
+using System.Web.Routing;
 
 namespace Pedidos.WebApp
 {
@@ -18,7 +16,8 @@ namespace Pedidos.WebApp
             AreaRegistration.RegisterAllAreas();
             GlobalConfiguration.Configure(WebApiConfig.Register);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
-            AutoMapperConfig.Configure();       
+            AutoMapperConfig.Configure();
+            BundleConfig.RegisterBundles(BundleTable.Bundles);
         }
     }
 }

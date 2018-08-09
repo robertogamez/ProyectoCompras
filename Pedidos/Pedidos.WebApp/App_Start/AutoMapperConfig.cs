@@ -10,8 +10,8 @@ namespace Pedidos.WebApp
         {
             Mapper.Initialize(cfg =>
             {
-                cfg.CreateMap<Producto, ProductoBO>();
-                cfg.CreateMap<ProductoBO, Producto>();
+                cfg.CreateMap<Product, ProductBO>();
+                cfg.CreateMap<ProductBO, Product>();
             });
         }
     }

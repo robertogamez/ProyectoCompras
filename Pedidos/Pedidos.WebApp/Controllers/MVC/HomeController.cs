@@ -10,7 +10,7 @@ namespace Pedidos.WebApp.Controllers.MVC
     public class HomeController : Controller
     {
 
-        public IProductoServicio ProductoServicios { get; set; }
+        public IProductService ProductoServicios { get; set; }
 
         public HomeController()
         {

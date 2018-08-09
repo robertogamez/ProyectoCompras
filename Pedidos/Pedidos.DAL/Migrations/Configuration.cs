@@ -5,14 +5,14 @@ namespace Pedidos.DAL.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<Pedidos.DAL.Core.ComprasContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<Pedidos.DAL.Core.ShoppingContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(Pedidos.DAL.Core.ComprasContext context)
+        protected override void Seed(Pedidos.DAL.Core.ShoppingContext context)
         {
             //  This method will be called after migrating to the latest version.
 

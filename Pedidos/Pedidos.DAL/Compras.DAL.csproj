@@ -49,19 +49,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Core\ComprasContext.cs" />
-    <Compile Include="Entities\LineaPedido.cs" />
-    <Compile Include="Entities\Pedido.cs" />
-    <Compile Include="Entities\Producto.cs" />
+    <Compile Include="Core\ShoppingContext.cs" />
+    <Compile Include="Entities\OrderLine.cs" />
+    <Compile Include="Entities\Order.cs" />
+    <Compile Include="Entities\Product.cs" />
     <Compile Include="Migrations\201808081501312_Crear base de datos.cs" />
     <Compile Include="Migrations\201808081501312_Crear base de datos.Designer.cs">
       <DependentUpon>201808081501312_Crear base de datos.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201808091757088_SeAñadeColumnaEstatus.cs" />
+    <Compile Include="Migrations\201808091757088_SeAñadeColumnaEstatus.Designer.cs">
+      <DependentUpon>201808091757088_SeAñadeColumnaEstatus.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repositorio\IRepositorioGenerico.cs" />
-    <Compile Include="Repositorio\RepositorioGenerico.cs" />
-    <Compile Include="UnidadDeTrabajo\UnidadDeTrabajo.cs" />
+    <Compile Include="Repository\IRepositoryGeneric.cs" />
+    <Compile Include="Repository\RepositoryGeneric.cs" />
+    <Compile Include="UnitWork\UnitOfWork.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -70,6 +74,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201808081501312_Crear base de datos.resx">
       <DependentUpon>201808081501312_Crear base de datos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808091757088_SeAñadeColumnaEstatus.resx">
+      <DependentUpon>201808091757088_SeAñadeColumnaEstatus.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

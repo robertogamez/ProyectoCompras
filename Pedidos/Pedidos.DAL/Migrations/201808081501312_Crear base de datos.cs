@@ -8,20 +8,19 @@ namespace Pedidos.DAL.Migrations
         public override void Up()
         {
             CreateTable(
-                "dbo.LineaPedidoes",
+                "dbo.OrderLines",
                 c => new
                     {
                         Id = c.Long(nullable: false, identity: true),
                         ProductId = c.Long(nullable: false),
                         Quantity = c.Int(nullable: false),
-                        Producto_Id = c.Long(),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Productoes", t => t.Producto_Id)
-                .Index(t => t.Producto_Id);
+                .ForeignKey("dbo.Products", t => t.ProductId, cascadeDelete: true)
+                .Index(t => t.ProductId);
             
             CreateTable(
-                "dbo.Productoes",
+                "dbo.Products",
                 c => new
                     {
                         Id = c.Long(nullable: false, identity: true),
@@ -32,7 +31,7 @@ namespace Pedidos.DAL.Migrations
                 .PrimaryKey(t => t.Id);
             
             CreateTable(
-                "dbo.Pedidoes",
+                "dbo.Orders",
                 c => new
                     {
                         Id = c.Long(nullable: false, identity: true),
@@ -48,11 +47,11 @@ namespace Pedidos.DAL.Migrations
         
         public override void Down()
         {
-            DropForeignKey("dbo.LineaPedidoes", "Producto_Id", "dbo.Productoes");
-            DropIndex("dbo.LineaPedidoes", new[] { "Producto_Id" });
-            DropTable("dbo.Pedidoes");
-            DropTable("dbo.Productoes");
-            DropTable("dbo.LineaPedidoes");
+            DropForeignKey("dbo.OrderLines", "ProductId", "dbo.Products");
+            DropIndex("dbo.OrderLines", new[] { "ProductId" });
+            DropTable("dbo.Orders");
+            DropTable("dbo.Products");
+            DropTable("dbo.OrderLines");
         }
     }
 }

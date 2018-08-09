@@ -1,14 +1,14 @@
-﻿using System;
-using Ninject;
-using Ninject.Web.WebApi;
+﻿using Ninject;
 using Ninject.Web.Common;
-using System.Web.Http;
-using Pedidos.DAL.Repositorio;
-using Pedidos.DAL.Entities;
-using Pedidos.DAL.Core;
-using Pedidos.DAL.UnidadDeTrabajo;
+using Ninject.Web.WebApi;
+using Pedidos.BL.Implement;
 using Pedidos.BL.Interfaces;
-using Pedidos.BL.Implementacion;
+using Pedidos.DAL.Core;
+using Pedidos.DAL.Entities;
+using Pedidos.DAL.Repository;
+using Pedidos.DAL.UnitWork;
+using System;
+using System.Web.Http;
 
 [assembly: WebActivatorEx.PreApplicationStartMethod(typeof(YourProjectName.Web.App_Start.NinjectWebCommon), "Start")]
 [assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(YourProjectName.Web.App_Start.NinjectWebCommon), "Stop")]
@@ -76,15 +76,15 @@ namespace YourProjectName.Web.App_Start
         private static void RegisterServices(IKernel kernel)
         {
             // Repos
-            kernel.Bind<IRepositorioGenerico<Producto>>().To<RepositorioGenerico<Producto>>().InSingletonScope();
-            kernel.Bind<IRepositorioGenerico<Pedido>>().To<RepositorioGenerico<Pedido>>().InSingletonScope();
-            kernel.Bind<IRepositorioGenerico<LineaPedido>>().To<RepositorioGenerico<LineaPedido>>().InSingletonScope();
+            kernel.Bind<IRepositoryGeneric<Product>>().To<RepositoryGeneric<Product>>().InSingletonScope();
+            kernel.Bind<IRepositoryGeneric<Order>>().To<RepositoryGeneric<Order>>().InSingletonScope();
+            kernel.Bind<IRepositoryGeneric<OrderLine>>().To<RepositoryGeneric<OrderLine>>().InSingletonScope();
             // Contexto
-            kernel.Bind<ComprasContext>().To<ComprasContext>().InSingletonScope();
+            kernel.Bind<ShoppingContext>().To<ShoppingContext>().InSingletonScope();
             // Unidad de trabajo
-            kernel.Bind<UnidadDeTrabajo>().To<UnidadDeTrabajo>().InSingletonScope();
+            kernel.Bind<UnitOfWork>().To<UnitOfWork>().InSingletonScope();
             // Lógica de ngocio
-            kernel.Bind<IProductoServicio>().To<ProductoServicio>().InRequestScope();
+            kernel.Bind<IProductService>().To<ProductService>().InRequestScope();
 
         }
     }

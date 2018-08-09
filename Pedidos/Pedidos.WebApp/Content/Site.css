@@ -16,3 +16,6 @@ textarea {
     max-width: 280px;
 }
 
+form .error{
+    color: #c20b0b;
+}
